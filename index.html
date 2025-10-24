@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mood Event Studio — Arabian Night</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Poppins:wght@400;500&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #1b0f2b, #090712, #000);
+      color: #f4f4f4;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 🌙 Жұлдызды фон */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20% 40%, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1.5px 1.5px at 80% 70%, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1px 1px at 50% 20%, rgba(255,255,255,0.2), transparent);
+      animation: stars 12s infinite linear;
+      z-index: 0;
+    }
+
+    @keyframes stars {
+      from { background-position: 0 0, 50px 50px, 100px 100px; }
+      to { background-position: 100px 200px, 150px 250px, 200px 300px; }
+    }
+
+    /* 💫 Жарық дақтары */
+    .glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.3;
+      animation: float 10s infinite ease-in-out alternate;
+      z-index: 0;
+    }
+    .glow.gold { background: #d4af37; top: 15%; left: 15%; }
+    .glow.violet { background: #7b68ee; bottom: 10%; right: 10%; animation-delay: 3s; }
+
+    @keyframes float {
+      from { transform: translateY(0) scale(1); }
+      to { transform: translateY(-25px) scale(1.05); }
+    }
+
+    /* 🕌 Карточка */
+    .card {
+      position: relative;
+      background: rgba(15, 8, 40, 0.8);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      backdrop-filter: blur(12px);
+      border-radius: 22px;
+      padding: 45px 35px;
+      max-width: 520px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(212,175,55,0.2);
+      z-index: 1;
+      animation: rise 1.5s ease-out;
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      color: #f7d774;
+      text-shadow: 0 0 10px rgba(247,215,116,0.5);
+      margin-bottom: 10px;
+    }
+
+    p.lead {
+      color: #e0e0e0;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    ul.services {
+      text-align: left;
+      list-style: none;
+      margin: 25px auto;
+      max-width: 400px;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    ul.services li {
+      margin: 10px 0;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    ul.services li::before {
+      content: "★";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #f7d774;
+      text-shadow: 0 0 6px rgba(247,215,116,0.8);
+    }
+
+    .contacts {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(247,215,116,0.4);
+    }
+
+    .whatsapp { background: #25D366; }
+    .instagram {
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+
+    footer {
+      margin-top: 30px;
+      color: #aaa;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 1.9rem; }
+      .card { padding: 35px 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="glow gold"></div>
+  <div class="glow violet"></div>
+
+  <div class="card">
+    <h1>Mood Event Studio</h1>
+    <p class="lead">Mood.event.studio — барлық қызметтер бір жерде 🌙</p>
+
+    <ul class="services">
+      <li>Іс-шараларды толық ұйымдастыру</li>
+      <li>Залдарды безендіру және декор</li>
+      <li>Тақырыптық кештер (мысалы, 2000-жылдар стилінде, Netflix party және т.б.)</li>
+      <li>Фото/видео түсірілім қызметтері</li>
+      <li>Жүргізушілер, диджейлер, музыканттар</li>
+      <li>Іс-шараның фирмалық стилін жасау (афишалар, шақыру билеттері, мерч және т.б.)</li>
+    </ul>
+
+    <div class="contacts">
+      <a href="https://wa.me/77052748555" target="_blank" class="btn whatsapp">WhatsApp</a>
+      <a href="https://www.instagram.com/mood.event.studio_04?igsh=MTQ3b3Bva3FyMzFucg==" target="_blank" class="btn instagram">Instagram</a>
+    </div>
+
+    <footer>© 2025 Mood Event Studio — Arabian Night</footer>
+  </div>
+</body>
+</html>
